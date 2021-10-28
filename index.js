@@ -1,60 +1,9 @@
 (async()=>{
   const defaultPrefs = {
-    essentialPatches: true,
-    spoofAdmin: false,
-    spoofPlus: false,
-    unlockAllBlooks: false,
-    bypassRandomName: false,
-    skipBoxOpenAnimation: false,
-    hideParticles: false,
-    alwaysThreeTimesTokens: false,
-    allAnswersCorrect: false,
-    goldRush: {
-      removeNegatives: false,
-      doublePrizes: false,
+      addtokens: false,
     },
-    towerDefense: {
-      everythingIsFree: false,
-      sellAtFullPrice: false,
-      unlockAllTowers: false,
-      removeObstacles: false,
-      customMaps: {
-        islands: false,
-        volatileVolcano: false,
-      },
-    },
-    factory: {
-      alwaysGetMegaBot: false,
-    },
-    cryptoHack: {
-      passwordsAlwaysCorrect: true,
-    },
-  };
-  const friendlyNames = {
-    essentialPatches: 'Essential Patches',
-    spoofAdmin: 'Spoof Admin',
-    spoofPlus: 'Spoof Plus',
-    unlockAllBlooks: 'Unlock All Blooks',
-    bypassRandomName: 'Bypass Random Name',
-    skipBoxOpenAnimation: 'Skip Box Open Animation',
-    hideParticles: 'Hide Particles',
-    alwaysThreeTimesTokens: 'Always 3x Tokens',
-    allAnswersCorrect: 'All Answers Correct',
-    goldRush: 'Gold Quest',
-    'goldRush/removeNegatives': 'Remove Negatives',
-    'goldRush/doublePrizes': 'Double Prizes',
-    towerDefense: 'Tower Defense',
-    'towerDefense/everythingIsFree': 'Everything is Free',
-    'towerDefense/sellAtFullPrice': 'Sell at Full Price',
-    'towerDefense/unlockAllTowers': 'Unlock All Towers',
-    'towerDefense/removeObstacles': 'Remove Obstacles',
-    'towerDefense/customMaps': 'Custom Maps',
-    'towerDefense/customMaps/islands': 'Islands (Piotr)',
-    'towerDefense/customMaps/volatileVolcano': 'Volatile Volcano (Cheese)',
-    factory: 'Factory',
-    'factory/alwaysGetMegaBot': 'Always Get Mega Bot',
-    cryptoHack: 'Crypto Hack',
-    'cryptoHack/passwordsAlwaysCorrect': 'Passwords Always Correct'
+    
+    '
   }
   const currentPrefs = JSON.parse(localStorage.getItem('prefs') || '{}');
   const dig = (template, prefs) => {
