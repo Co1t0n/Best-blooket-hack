@@ -28,13 +28,7 @@
     return confirm('Found outdated preference ' + pref + ', would you like to remove it (OK for yes, cancel for no)? (select OK if unsure)');
   }
 
-  if(typeof currentPrefs.towerDefense.hideParticles !== 'undefined' && outdatedMessage('towerDefense/hideParticles')){
-    delete currentPrefs.towerDefense.hideParticles;
-  }
-  if(typeof currentPrefs.towerDefense.unlockMine !== 'undefined' && outdatedMessage('towerDefense/unlockMine')){
-    delete currentPrefs.towerDefense.unlockMine;
-  }
-
+  
   localStorage.setItem('prefs', JSON.stringify(currentPrefs));
 
   if(!localStorage.getItem('injectables'))
