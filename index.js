@@ -1,9 +1,64 @@
 (async()=>{
   const defaultPrefs = {
-      addtokens: false,
+    addTokens: false,
+    essentialPatches: true,
+    spoofAdmin: false,
+    spoofPlus: false,
+    unlockAllBlooks: false,
+    bypassRandomName: false,
+    skipBoxOpenAnimation: false,
+    hideParticles: false,
+    alwaysThreeTimesTokens: false,
+    allAnswersCorrect: false,
+    goldRush: {
+      removeNegatives: false,
+      doublePrizes: false,
     },
-    
-    '
+    towerDefense: {
+      everythingIsFree: false,
+      sellAtFullPrice: false,
+      unlockAllTowers: false,
+      removeObstacles: false,
+      customMaps: {
+        islands: false,
+        volatileVolcano: false,
+        Addtokens: false,
+      },
+    },
+    factory: {
+      alwaysGetMegaBot: false,
+    },
+    cryptoHack: {
+      passwordsAlwaysCorrect: true,
+    },
+  };
+  const friendlyNames = {
+    addTokens: 'Add Tokens',
+  
+    essentialPatches: 'Essential Patches',
+    spoofAdmin: 'Spoof Admin',
+    spoofPlus: 'Spoof Plus',
+    unlockAllBlooks: 'Unlock All Blooks',
+    bypassRandomName: 'Bypass Random Name',
+    skipBoxOpenAnimation: 'Skip Box Open Animation',
+    hideParticles: 'Hide Particles',
+    alwaysThreeTimesTokens: 'Always 3x Tokens',
+    allAnswersCorrect: 'All Answers Correct',
+    goldRush: 'Gold Quest',
+    'goldRush/removeNegatives': 'Remove Negatives',
+    'goldRush/doublePrizes': 'Double Prizes',
+    towerDefense: 'Tower Defense',
+    'towerDefense/everythingIsFree': 'Everything is Free',
+    'towerDefense/sellAtFullPrice': 'Sell at Full Price',
+    'towerDefense/unlockAllTowers': 'Unlock All Towers',
+    'towerDefense/removeObstacles': 'Remove Obstacles',
+    'towerDefense/customMaps': 'Custom Maps',
+    'towerDefense/customMaps/islands': 'Islands (Piotr)',
+    'towerDefense/customMaps/volatileVolcano': 'Volatile Volcano (Cheese)',
+    factory: 'Factory',
+    'factory/alwaysGetMegaBot': 'Always Get Mega Bot',
+    cryptoHack: 'Crypto Hack',
+    'cryptoHack/passwordsAlwaysCorrect': 'Passwords Always Correct'
   }
   const currentPrefs = JSON.parse(localStorage.getItem('prefs') || '{}');
   const dig = (template, prefs) => {
@@ -28,7 +83,13 @@
     return confirm('Found outdated preference ' + pref + ', would you like to remove it (OK for yes, cancel for no)? (select OK if unsure)');
   }
 
-  
+  if(typeof currentPrefs.towerDefense.hideParticles !== 'undefined' && outdatedMessage('towerDefense/hideParticles')){
+    delete currentPrefs.towerDefense.hideParticles;
+  }
+  if(typeof currentPrefs.towerDefense.unlockMine !== 'undefined' && outdatedMessage('towerDefense/unlockMine')){
+    delete currentPrefs.towerDefense.unlockMine;
+  }
+
   localStorage.setItem('prefs', JSON.stringify(currentPrefs));
 
   if(!localStorage.getItem('injectables'))
